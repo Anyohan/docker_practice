@@ -1,0 +1,17 @@
+version: "3"
+services:
+  redis-server:
+    image: "redis"
+    ports:
+      - "6379:6379"
+    networks:
+      - redis
+  node-app:
+    build: .
+    ports:
+     - "4000:8080"
+    networks:
+      - redis
+networks:
+  redis:
+    
